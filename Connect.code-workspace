@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.pythonPath": "connect/bin/python3",
+		"git.ignoreLimitWarning": true
+	}
+}
