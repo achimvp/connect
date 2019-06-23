@@ -5,3 +5,5 @@ connect
 db.sqlite3
 /static
 .DS_Store
+Connect.code-workspace
+/.vscode
