@@ -23,6 +23,9 @@ class Post(models.Model):   # models.Model shows Django, that the class should
     def approved_comments(self):
         return self.comments.filter(approved_comment=True)
 
+    def get_absolute_url(self):
+        return reverse('post_detail', kwargs={'pk': self.pk})
+
 
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', on_delete=models.CASCADE,
