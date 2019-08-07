@@ -77,13 +77,16 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': os.getenv('DATABASE_NAME'),
         'USER': os.getenv('DATABASE_USER'),
         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
-        'HOST': 'localhost',  # just during devolpment
-        'PORT': '5432',
+        'HOST': os.getenv('DATABASE_HOST'),  # localhost just during devolpment
     }
+    #        'OPTIONS': {
+    #            'read_default_file': '/etc/mysql/my.cnf',  # all options are
+    #                                                       # set in my.cnf
+    #        }
 }
 
 # Password validation
@@ -161,7 +164,9 @@ EMAIL_HOST_PASSWORD = "Qwertzuiop12357."
 
 # Import Local settings
 try:
-    from .local_setwtings import *
-except ImportError:
+    from .local_settings import *
+    print("local_settings.py loaded")
+except ImportError as e:
+    print(e.msg)
     import sys
-    sys.stderr.write('local_settings.py not set; using default settings\n')
+    sys.stderr.write('local_settings.py not set - using default settings\n')
