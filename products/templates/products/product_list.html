@@ -1,0 +1,31 @@
+{% extends "products/base.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+{% endblock %}
+{% block sidebar %}
+    <!-- Sidebar with categories -->
+        {% for category in  categories %}
+            <a href="#">{{ category.name }}</a>
+        {% empty %}
+            <a>Print it like its hot</a>
+        {% endfor %}
+{% endblock %}
+{% block content %}
+    {% for product in object_list %}
+    <div class="card product">
+        <div class="card-body">
+            <div class="date">
+                <p>Kategorie: {{ product.precise_category.common_category }} Anbieter: <a href="{% url 'profile'%}">{{ product.owner.username }}</a></p>
+            </div>
+                <div class="product-header">
+                    <h1><a href="#">{{ product.name }}</a></h1>
+                    <span class="price">{{ product.price }}</span>
+                </div>
+                <p>{{ product.description|linebreaksbr }}</p>
+        </div>
+    </div>
+    {% empty %}
+    <p>no products here. We're sorry!</p>
+    {% endfor %}
+{% endblock %}

@@ -8,27 +8,30 @@
         <link rel="shortcut icon" type="image/x-icon" href="{% get_media_prefix %}icons/favicon.ico">
 
         <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        {% block head %}
+        {% endblock %}
     </head>
     <body>
         <header class="site-header">
-            <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <nav class="navbar navbar-expand-md navbar-light bg-steel fixed-top">
                 <div class="container">
-                    <a class="navbar-brand mr-4" href="{% url 'post_list' %}">Connect</a>
+                    <a class="navbar-brand mr-4" href="{% url 'post_list' %}"><img src="{% get_media_prefix %}/icons/logo_squared (copy).png" width="60" height="60" alt="connect logo"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
                         aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarToggle">
                         <div class="navbar-nav mr-auto">
-                            <a class="nav-item nav-link" href="{% url 'post_list' %}">Home</a>
+<!--                            <a class="nav-item nav-link" href="{% url 'post_list' %}">Home</a>-->
                         </div>
                         <!-- Navbar Right Side -->
                         <div class="navbar-nav">
                             {% if user.is_authenticated %}
-                                <a class="nav-item nav-link" href="{% url 'post_new'%}">New Post</a>
+                                <a class="nav-item nav-link" href="{% url 'post_new'%}">Neu Anzeige</a>
                                 <a class="nav-item nav-link" href="{% url 'profile'%}">Profile</a>
                                 <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                             {% else%}
@@ -52,7 +55,8 @@
             <h1><a href="{% url 'post_list'%}">Connect</a></h1>
         </div>
         -->
-
+        {% block sidebar %}
+        {% endblock %}
         <main role="main" class="container">
             <div class="row">
                 <div class="col-md-8">

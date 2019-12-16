@@ -26,8 +26,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'www.prittwitz.xyz',
-    'www.achimvp.pythonanywhere.com',
+    'www.näkyu.de',
+    'www.naekyu.de',
 ]
 
 
@@ -40,8 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
+    'locations.apps.LocationsConfig',
+    'products.apps.ProductsConfig',
     'crispy_forms',
 ]
 
@@ -147,10 +150,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATIC_ROOT = ''
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

@@ -19,6 +19,8 @@ from django.contrib.auth import views as auth_views
 from users import views as user_view
 from django.conf import settings
 from django.conf.urls.static import static
+from locations import views as locations_view
+from products import views as products_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -47,4 +49,9 @@ urlpatterns = [
          auth_views.PasswordResetCompleteView.as_view(
              template_name='users/password_reset_complete.html'),
          name='password_reset_complete'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('locations/', locations_view.hello_map, name="locations"),
+    path('products/', include('products.urls')),
+] + static(
+    settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT
+)

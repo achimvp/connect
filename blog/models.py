@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -30,7 +31,8 @@ class Post(models.Model):   # models.Model shows Django, that the class should
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', on_delete=models.CASCADE,
                              related_name='comments')
-    author = models.CharField(max_length=200)
+    author = models.OneToOneField(User, on_delete=models.CASCADE)
+    title = models.CharField(default="", max_length=100)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)

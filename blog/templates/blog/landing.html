@@ -14,18 +14,25 @@
     <table class=" mx-auto">
       <tbody>
         <tr>
-          <td class="align-middle text-center"><a href="{% url 'post_list' %}"><h1>Welcome to <br class="d-lg-none">Connect</h1></a></td>
+          <td class="align-middle text-center"><a href="{% url 'post_list' %}"><h1 class="site-title">Welcome to <br class="d-lg-none">Connect</h1></a></td>
         </tr>
       </tbody>
     </table>
     <main role="main" class="container">
-      <span>Content</span>
+      <span>Willkommen in deiner Nachbarschaft</span>
     </main>
     <footer class="footer">
       <div class="container">
         <a href="#" class="text-muted text-center">Impressum</a>
       </div>
     </footer>
+    <script>
+      function redirect(){
+         window.location.href = "/home";
+      }
+  
+      setTimeout(redirect, 2000); //2000 is equivalent to 2 seconds
+  </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

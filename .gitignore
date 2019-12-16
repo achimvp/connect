@@ -3,8 +3,10 @@
 __pycache__
 connect
 db.sqlite3
-/static
 .DS_Store
 Connect.code-workspace
 /.vscode
 local_settings.py
+about.txt
+colorschema.jpg
+color_codes.txt

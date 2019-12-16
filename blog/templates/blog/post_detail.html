@@ -13,7 +13,7 @@
         <a class="btn btn-outline-secondary" href="{% url 'post_edit' pk=post.pk %}" role="button"><span class="fa fa-pencil"></span></a>
     {% endif %}
     <a class="btn btn-secondary" href="{% url 'post_remove' pk=post.pk%}"><span class="fa fa-remove"></span></a>
-    <h1>{{ post.title }}</h1>
+    <h1 class="site-title">{{ post.title }}</h1>
     <p>{{ post.text|linebreaksbr }}</p>
 </div>
 
@@ -23,13 +23,13 @@
     {% if user.is_authenticated or comment.approved_comment %}
     <div class="comment">
         <div class="date">
-            {{ comment.created_date }}
+            <p>{{ comment.created_date }} | <a href="{% url 'profile'%}">{{ comment.author.username }}</a></p>
             {% if not comment.approved_comment %}
                 <a class="btn btn-outline-secondary" href="{% url 'comment_remove' pk=comment.pk %}"><span class="fa fa-remove"></span></a>
                 <a class="btn btn-outline-secondary" href="{% url 'comment_approve' pk=comment.pk %}"><span class="fa fa-check"></span></a>
             {% endif %}
         </div>
-        <strong>{{ comment.author }}</strong>
+        <strong>{{ comment.title }}</strong>
         <p>{{ comment.text|linebreaks }}</p>
     </div>
     {% endif %}
