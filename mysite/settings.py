@@ -26,7 +26,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'www.näkyu.de',
+    'www.xn--nkyu-loa.de',
     'www.naekyu.de',
 ]
 
